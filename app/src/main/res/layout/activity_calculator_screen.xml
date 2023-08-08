@@ -22,7 +22,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 x (3 + 6)"
                 android:id="@+id/calTv"
                 android:textSize="20sp"
                 android:textColor="@color/black"/>
@@ -83,23 +82,27 @@
                         android:textSize="16sp"
                         android:textColor="@color/black"
                         android:background="@drawable/first_row_style"/>
+
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/delBtn"
                         android:layout_width="60dp"
                         android:layout_height="50dp"
-                        android:layout_margin="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
                         android:layout_toRightOf="@id/eBtn"
-                        android:id="@+id/piBtn"
-                        android:text="π"
+                        android:background="@drawable/first_row_style"
+                        android:text="del"
                         android:textAllCaps="false"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
                         android:textColor="@color/black"
-                        android:background="@drawable/first_row_style"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
                     <androidx.appcompat.widget.AppCompatButton
                         android:layout_width="60dp"
                         android:layout_height="50dp"
                         android:layout_margin="10dp"
-                        android:layout_toRightOf="@id/piBtn"
+                        android:layout_toRightOf="@id/delBtn"
                         android:id="@+id/sinBtn"
                         android:text="sin"
                         android:textAllCaps="false"

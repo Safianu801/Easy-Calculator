@@ -1,7 +1,6 @@
 package com.safianu.easycalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -10,13 +9,17 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class CalculatorScreen extends AppCompatActivity {
 
     TextView calculationScreen;
     TextView answerScreen;
     RelativeLayout buttonsV;
+    double firstNum;
+    String operation;
 
-    Button zero, one, two, three, four, five, six, seven, eight, nine, leftBracket, rightBracket, fullStop, divide, multiply, subtract, add, cBtn;
+    Button zero, one, two, three, four, five, six, seven, eight, nine, leftBracket, rightBracket, delBtn, fullStop, divide, multiply, subtract, add, cBtn, equalBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,9 @@ public class CalculatorScreen extends AppCompatActivity {
         calculationScreen = findViewById(R.id.calTv);
         answerScreen = findViewById(R.id.answerTv);
         buttonsV = findViewById(R.id.buttonsV);
+        delBtn = findViewById(R.id.delBtn);
+        equalBtn = findViewById(R.id.equalBtn);
+        fullStop = findViewById(R.id.fullStopBtn);
 
         //numbers button
 
@@ -49,66 +55,32 @@ public class CalculatorScreen extends AppCompatActivity {
         eight = findViewById(R.id.eightBtn);
         nine = findViewById(R.id.nineBtn);
 
-        zero.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(zero.getText());
-            }
-        });
-        one.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(one.getText());
-            }
-        });
-        two.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(two.getText());
-            }
-        });
-        three.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(three.getText());
-            }
-        });
-        four.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(four.getText());
-            }
-        });
-        five.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(five.getText());
-            }
-        });
-        six.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(six.getText());
-            }
-        });
-        seven.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(seven.getText());
-            }
-        });
-        eight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(eight.getText());
-            }
-        });
-        nine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(nine.getText());
-            }
-        });
+
+        ArrayList<Button> numbersBtn = new ArrayList<>();
+        numbersBtn.add(zero);
+        numbersBtn.add(one);
+        numbersBtn.add(two);
+        numbersBtn.add(three);
+        numbersBtn.add(four);
+        numbersBtn.add(five);
+        numbersBtn.add(six);
+        numbersBtn.add(seven);
+        numbersBtn.add(eight);
+        numbersBtn.add(nine);
+
+        for (Button b : numbersBtn){
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (!calculationScreen.getText().toString().equals("0")){
+                        calculationScreen.setText(calculationScreen.getText().toString() + b.getText().toString());
+                    }else {
+                        calculationScreen.setText(b.getText().toString());
+                    }
+                }
+            });
+        }
+
 
 
         //operators button
@@ -121,51 +93,60 @@ public class CalculatorScreen extends AppCompatActivity {
         leftBracket = findViewById(R.id.leftBracketBtn);
         rightBracket = findViewById(R.id.rightBracketBtn);
 
+        ArrayList<Button> operatorsBtn = new ArrayList<>();
+        operatorsBtn.add(divide);
+        operatorsBtn.add(add);
+        operatorsBtn.add(subtract);
+        operatorsBtn.add(multiply);
 
+        for (Button button : operatorsBtn){
+            button.setOnClickListener(view -> {
+//                firstNum = Double.parseDouble(calculationScreen.getText().toString());
+                operation = button.getText().toString();
+                calculationScreen.setText("0");
+            });
+        }
 
-        divide.setOnClickListener(new View.OnClickListener() {
+        delBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                calculationScreen.setText(divide.getText());
+                String num = calculationScreen.getText().toString();
+                if (num.length()>1){
+                    calculationScreen.setText(num.substring(0, num.length()-1));
+                } else if (num.length() == 1 && !num.equals("0")) {
+                    calculationScreen.setText("0");
+                }
             }
         });
-        multiply.setOnClickListener(new View.OnClickListener() {
+
+        fullStop.setOnClickListener(view -> {
+            if (!calculationScreen.getText().toString().contains(".")){
+                calculationScreen.setText(calculationScreen.getText().toString() + ".");
+            }
+        });
+
+        equalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                calculationScreen.setText(multiply.getText());
+                double secondNumber = Double.parseDouble(calculationScreen.getText().toString());
+                double result;
+                if (operation == "/"){
+                    result = firstNum/secondNumber;
+                }else if (operation == "+"){
+                    result = firstNum+secondNumber;
+                } else if (operation == "-") {
+                    result = firstNum-secondNumber;
+                } else if (operation == "X") {
+                    result = firstNum*secondNumber;
+                }
             }
         });
-        subtract.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(subtract.getText());
-            }
-        });
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(add.getText());
-            }
-        });
-        leftBracket.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(leftBracket.getText());
-            }
-        });
-        rightBracket.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculationScreen.setText(rightBracket.getText());
-            }
-        });
+
         cBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calculationScreen.setText("");
-                answerScreen.setText("");
             }
         });
-
     }
 }
