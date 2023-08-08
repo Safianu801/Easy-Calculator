@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculatorScreen">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/tv">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:id="@+id/calView"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 x (3 + 6)"
+                android:id="@+id/calTv"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:id="@+id/answerView"
+            android:layout_below="@id/calView"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18"
+                android:textStyle="bold"
+                android:id="@+id/answerTv"
+                android:textSize="50sp"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv"
+        android:id="@+id/buttonsV"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="10dp"
+                        android:id="@+id/eBtn"
+                        android:text="e"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/first_row_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="10dp"
+                        android:layout_toRightOf="@id/eBtn"
+                        android:id="@+id/piBtn"
+                        android:text="π"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/first_row_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="10dp"
+                        android:layout_toRightOf="@id/piBtn"
+                        android:id="@+id/sinBtn"
+                        android:text="sin"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/first_row_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="60dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="10dp"
+                        android:layout_toRightOf="@id/sinBtn"
+                        android:id="@+id/degBtn"
+                        android:text="deg"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/first_row_style"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/cBtn"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/c_button_style"
+                        android:text="c"
+                        android:textColor="#F34747"
+                        android:textSize="25sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/leftBracketBtn"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_toRightOf="@id/cBtn"
+                        android:background="@drawable/numbers_button_style"
+                        android:text="("
+                        android:textColor="@color/black"
+                        android:textSize="25sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/rightBracketBtn"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_toRightOf="@id/leftBracketBtn"
+                        android:background="@drawable/numbers_button_style"
+                        android:text=")"
+                        android:textColor="@color/black"
+                        android:textSize="25sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/divideBtn"
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_toRightOf="@id/rightBracketBtn"
+                        android:background="@drawable/operators_button_style"
+                        android:text="/"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/sevenBtn"
+                        android:text="7"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/eightBtn"
+                        android:text="8"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@id/sevenBtn"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/nineBtn"
+                        android:text="9"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@id/eightBtn"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/multiplyBtn"
+                        android:text="X"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:layout_toRightOf="@id/nineBtn"
+                        android:background="@drawable/operators_button_style"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/fourBtn"
+                        android:text="4"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/fiveBtn"
+                        android:text="5"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@id/fourBtn"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/sixBtn"
+                        android:text="6"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@id/fiveBtn"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="-"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:id="@+id/subtractBtn"
+                        android:layout_toRightOf="@id/sixBtn"
+                        android:background="@drawable/operators_button_style"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/oneBtn"
+                        android:text="1"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/twoBtn"
+                        android:text="2"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@id/oneBtn"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/threeBtn"
+                        android:text="3"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@id/twoBtn"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/addBtn"
+                        android:text="+"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:layout_toRightOf="@id/threeBtn"
+                        android:background="@drawable/operators_button_style"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="150dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/zeroBtn"
+                        android:text="0"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/fullStopBtn"
+                        android:text="."
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:layout_toRightOf="@id/zeroBtn"
+                        android:background="@drawable/numbers_button_style"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="65dp"
+                        android:layout_height="65dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/equalBtn"
+                        android:text="="
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:layout_toRightOf="@id/fullStopBtn"
+                        android:background="@drawable/equal_button_style"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
