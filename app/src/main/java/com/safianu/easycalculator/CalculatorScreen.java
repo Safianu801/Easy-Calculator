@@ -27,15 +27,17 @@ public class CalculatorScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator_screen);
 
+        //setting the status and navigation bar color to whie
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Window window = this.getWindow();
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-            window.setNavigationBarColor(this.getResources().getColor(R.color.main_bg));
-            window.setStatusBarColor(this.getResources().getColor(R.color.main_bg));
+            window.setNavigationBarColor(this.getResources().getColor(R.color.white));
+            window.setStatusBarColor(this.getResources().getColor(R.color.white));
         }
 
-        //calculation logic
+        //calculation logic begins
 
+        //screens and some button
         calculationScreen = findViewById(R.id.calTv);
         answerScreen = findViewById(R.id.answerTv);
         buttonsV = findViewById(R.id.buttonsV);
