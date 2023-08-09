@@ -27,7 +27,8 @@ public class CalculatorScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator_screen);
 
-        //setting the status and navigation bar color to whie
+        //setting the status and navigation bar color to white
+        
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             Window window = this.getWindow();
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
