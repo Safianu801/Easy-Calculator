@@ -6,48 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".CalculatorScreen">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="2760dp"
         android:id="@+id/tv">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:id="@+id/calView"
-            android:layout_marginTop="10dp">
 
-            <TextView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/calTv"
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/calView"
+                android:layout_marginTop="10dp">
 
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:id="@+id/answerView"
-            android:layout_below="@id/calView"
-            android:layout_marginTop="15dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/calTv"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
 
-            <TextView
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="18"
-                android:textStyle="bold"
-                android:id="@+id/answerTv"
-                android:textSize="50sp"
-                android:textColor="@color/black"/>
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:id="@+id/answerView"
+                android:layout_below="@id/calView"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textStyle="bold"
+                    android:id="@+id/answerTv"
+                    android:textSize="50sp"
+                    android:textColor="@color/black"/>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
-    </RelativeLayout>
+    </ScrollView>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,16 +81,19 @@
 
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/eBtn"
                         android:layout_width="60dp"
                         android:layout_height="50dp"
-                        android:layout_margin="10dp"
-                        android:id="@+id/eBtn"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/first_row_style"
                         android:text="e"
                         android:textAllCaps="false"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
                         android:textColor="@color/black"
-                        android:background="@drawable/first_row_style"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/delBtn"
@@ -256,7 +268,8 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp"
                         android:id="@+id/multiplyBtn"
-                        android:text="X"
+                        android:text="x"
+                        android:textAllCaps="false"
                         android:textSize="25sp"
                         android:textColor="@color/white"
                         android:layout_toRightOf="@id/nineBtn"

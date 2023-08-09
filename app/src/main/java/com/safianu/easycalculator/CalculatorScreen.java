@@ -13,13 +13,14 @@ import java.util.ArrayList;
 
 public class CalculatorScreen extends AppCompatActivity {
 
+
     TextView calculationScreen;
     TextView answerScreen;
     RelativeLayout buttonsV;
     double firstNum;
     String operation;
 
-    Button zero, one, two, three, four, five, six, seven, eight, nine, leftBracket, rightBracket, delBtn, fullStop, divide, multiply, subtract, add, cBtn, equalBtn;
+    Button zero, one, two, three, four, eButton, five, six, seven, eight, nine, leftBracket, rightBracket, delBtn, fullStop, divide, multiply, subtract, add, cBtn, equalBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,8 @@ public class CalculatorScreen extends AppCompatActivity {
         delBtn = findViewById(R.id.delBtn);
         equalBtn = findViewById(R.id.equalBtn);
         fullStop = findViewById(R.id.fullStopBtn);
+        eButton = findViewById(R.id.eBtn);
+
 
         //numbers button
 
@@ -93,17 +96,44 @@ public class CalculatorScreen extends AppCompatActivity {
         leftBracket = findViewById(R.id.leftBracketBtn);
         rightBracket = findViewById(R.id.rightBracketBtn);
 
+        ArrayList<Button> brackets = new ArrayList<>();
+        brackets.add(leftBracket);
+        brackets.add(rightBracket);
+        brackets.add(fullStop);
+        for (Button button : brackets){
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (!calculationScreen.getText().toString().equals("0")){
+                        calculationScreen.setText(calculationScreen.getText().toString() + button.getText().toString());
+                    }else {
+                        calculationScreen.setText(button.getText().toString());
+                    }
+                }
+            });
+        }
+
         ArrayList<Button> operatorsBtn = new ArrayList<>();
         operatorsBtn.add(divide);
         operatorsBtn.add(add);
         operatorsBtn.add(subtract);
         operatorsBtn.add(multiply);
 
-        for (Button button : operatorsBtn){
-            button.setOnClickListener(view -> {
+        for (Button operators : operatorsBtn){
+            operators.setOnClickListener(view -> {
+
+
 //                firstNum = Double.parseDouble(calculationScreen.getText().toString());
-                operation = button.getText().toString();
-                calculationScreen.setText("0");
+//                operation = operators.getText().toString();
+//                calculationScreen.setText("0");
+
+                if (!calculationScreen.getText().toString().equals("0")){
+                    calculationScreen.setText(calculationScreen.getText().toString() + operators.getText().toString());
+                }else {
+                    calculationScreen.setText(operators.getText().toString());
+                }
+
+
             });
         }
 
@@ -119,33 +149,28 @@ public class CalculatorScreen extends AppCompatActivity {
             }
         });
 
-        fullStop.setOnClickListener(view -> {
-            if (!calculationScreen.getText().toString().contains(".")){
-                calculationScreen.setText(calculationScreen.getText().toString() + ".");
-            }
-        });
-
-        equalBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                double secondNumber = Double.parseDouble(calculationScreen.getText().toString());
-                double result;
-                if (operation == "/"){
-                    result = firstNum/secondNumber;
-                }else if (operation == "+"){
-                    result = firstNum+secondNumber;
-                } else if (operation == "-") {
-                    result = firstNum-secondNumber;
-                } else if (operation == "X") {
-                    result = firstNum*secondNumber;
-                }
-            }
-        });
+//        equalBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                double secondNumber = Double.parseDouble(calculationScreen.getText().toString());
+//                double result;
+//                if (operation == "/"){
+//                    result = firstNum/secondNumber;
+//                }else if (operation == "+"){
+//                    result = firstNum+secondNumber;
+//                } else if (operation == "-") {
+//                    result = firstNum-secondNumber;
+//                } else if (operation == "X") {
+//                    result = firstNum*secondNumber;
+//                }
+//            }
+//        });
 
         cBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calculationScreen.setText("");
+                answerScreen.setText("");
             }
         });
     }
